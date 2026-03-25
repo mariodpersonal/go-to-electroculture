@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart-context";
 
 const navLinks = [
@@ -14,7 +15,10 @@ const navLinks = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { itemCount, toggleCart } = useCart();
+  const { itemCount } = useCart();
+  const pathname = usePathname();
+  const isHomepage = pathname === "/";
+  const isTransparent = isHomepage && !scrolled;
 
   useEffect(() => {
     function handleScroll() {
@@ -41,11 +45,13 @@ export default function Header() {
 
   return (
     <>
+      {/* Spacer to push content below fixed header — hidden on homepage where hero goes behind header */}
+      {!isHomepage && <div style={{ height: 72 }} />}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-[var(--color-bg)] shadow-md"
-            : "bg-transparent"
+          isTransparent
+            ? "bg-transparent"
+            : "bg-[var(--color-bg)] shadow-md"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -54,7 +60,7 @@ export default function Header() {
             <Link href="/" className="flex items-baseline gap-1.5 font-[family-name:var(--font-heading)]">
               <span
                 className={`text-xl tracking-wide transition-colors duration-300 ${
-                  scrolled ? "text-[var(--color-text)]" : "text-white"
+                  isTransparent ? "text-white" : "text-[var(--color-text)]"
                 }`}
               >
                 GO TO
@@ -71,9 +77,9 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={`text-sm font-medium tracking-wide uppercase transition-colors duration-300 hover:text-[var(--color-primary)] ${
-                    scrolled
-                      ? "text-[var(--color-text)]"
-                      : "text-white"
+                    isTransparent
+                      ? "text-white"
+                      : "text-[#2C2C2A]"
                   }`}
                 >
                   {link.label}
@@ -83,12 +89,12 @@ export default function Header() {
 
             {/* Right Side: Cart + Mobile Menu Toggle */}
             <div className="flex items-center gap-4">
-              {/* Cart Button */}
-              <button
-                onClick={toggleCart}
+              {/* Cart Link */}
+              <Link
+                href="/cart"
                 aria-label={`Shopping cart with ${itemCount} items`}
                 className={`relative p-2 transition-colors duration-300 hover:text-[var(--color-primary)] ${
-                  scrolled ? "text-[var(--color-text)]" : "text-white"
+                  isTransparent ? "text-white" : "text-[var(--color-text)]"
                 }`}
               >
                 <svg
@@ -115,14 +121,14 @@ export default function Header() {
                     {itemCount > 99 ? "99+" : itemCount}
                   </span>
                 )}
-              </button>
+              </Link>
 
               {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setMobileMenuOpen((prev) => !prev)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 className={`p-2 transition-colors duration-300 md:hidden hover:text-[var(--color-primary)] ${
-                  scrolled ? "text-[var(--color-text)]" : "text-white"
+                  isTransparent ? "text-white" : "text-[var(--color-text)]"
                 }`}
               >
                 <svg
@@ -202,13 +208,11 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Mobile Cart Button */}
+        {/* Mobile Cart Link */}
         <div className="px-6 pt-6">
-          <button
-            onClick={() => {
-              closeMobileMenu();
-              toggleCart();
-            }}
+          <Link
+            href="/cart"
+            onClick={closeMobileMenu}
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-primary)] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-hover)]"
           >
             <svg
@@ -236,7 +240,7 @@ export default function Header() {
                 {itemCount}
               </span>
             )}
-          </button>
+          </Link>
         </div>
       </div>
     </>

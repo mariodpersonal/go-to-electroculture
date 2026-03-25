@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ShippingPolicyPage() {
   return (
-    <main className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[var(--color-bg)]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <Link
           href="/shop"
@@ -15,13 +15,6 @@ export default function ShippingPolicyPage() {
           Shipping Policy
         </h1>
 
-        {/* Draft Banner */}
-        <div className="bg-[#C4923A]/10 border border-[#C4923A]/30 rounded-lg px-5 py-4 mb-10">
-          <p className="text-sm text-[#9A5E2A] font-medium">
-            This policy is a draft and should be reviewed by a legal
-            professional.
-          </p>
-        </div>
 
         <div className="prose-custom space-y-8">
           <section>
@@ -115,6 +108,6 @@ export default function ShippingPolicyPage() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

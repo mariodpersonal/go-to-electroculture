@@ -23,14 +23,15 @@ export interface ProductVariant {
   price: number;
 }
 
-export type Category = "antennas" | "pyramids" | "handwear" | "drinkware" | "accessories";
+export type Category = "antennas" | "pyramids" | "handwear" | "tensor-rings" | "drinkware" | "emf-shields";
 
 export const CATEGORIES: Record<Category, { label: string; filterKey: string; description: string }> = {
   antennas: { label: "Antennas", filterKey: "ant", description: "Copper electroculture antennas for gardens" },
   pyramids: { label: "Pyramids", filterKey: "pyr", description: "Copper pyramid structures" },
   handwear: { label: "Handwear", filterKey: "hand", description: "Spiraled copper rings and bracelets" },
+  "tensor-rings": { label: "Tensor Rings", filterKey: "tensor", description: "Sacred geometry copper tensor rings" },
   drinkware: { label: "Drinkware", filterKey: "drink", description: "Copper mugs and water bottles" },
-  accessories: { label: "Accessories", filterKey: "acc", description: "EMF shields and copper tools" },
+  "emf-shields": { label: "EMF Shields", filterKey: "emf", description: "EMF radiation protection shields" },
 };
 
 export const products: Product[] = [
@@ -46,12 +47,8 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 0.3,
-    /* REPLACE: Real product photo of the single crystal antenna */
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=750&fit=crop",
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=750&fit=crop",
-    ],
+    image: "/images/single-antenna.png",
+    images: ["/images/single-antenna.png"],
     inStock: true,
   },
   {
@@ -65,12 +62,8 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 0.4,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&h=750&fit=crop",
-      "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600&h=750&fit=crop",
-    ],
+    image: "/images/single-antenna.png",
+    images: ["/images/single-antenna.png"],
     inStock: true,
   },
   {
@@ -84,12 +77,8 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 1.2,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1518882575940-6b5e8a0b6a22?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1518882575940-6b5e8a0b6a22?w=600&h=750&fit=crop",
-      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=600&h=750&fit=crop",
-    ],
+    image: "/images/single-antenna.png",
+    images: ["/images/single-antenna.png"],
     inStock: true,
   },
   {
@@ -103,11 +92,8 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 0.9,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=600&h=750&fit=crop",
-    ],
+    image: "/images/single-antenna.png",
+    images: ["/images/single-antenna.png"],
     inStock: true,
   },
   {
@@ -121,11 +107,8 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 1.0,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=750&fit=crop",
-    ],
+    image: "/images/single-antenna.png",
+    images: ["/images/single-antenna.png"],
     inStock: true,
   },
   {
@@ -139,11 +122,8 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 0.7,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1592419044706-39796d40f98c?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1592419044706-39796d40f98c?w=600&h=750&fit=crop",
-    ],
+    image: "/images/single-antenna.png",
+    images: ["/images/single-antenna.png"],
     inStock: true,
   },
   {
@@ -154,15 +134,12 @@ export const products: Product[] = [
     description: "A 9x9 inch copper pyramid with a spiraled quartz crystal core. The pyramid shape concentrates atmospheric energy into a focused point, while the spiraled quartz amplifies the signal. Place it in the center of a garden bed or use it indoors to energize a growing area.",
     features: ["9\" x 9\" copper base", "Spiraled quartz crystal", "Concentrated energy focus", "Indoor or outdoor use"],
     price: 150,
-    category: "antennas",
-    categoryLabel: "Antennas",
+    category: "pyramids",
+    categoryLabel: "Pyramids",
     dimensions: "9\" x 9\" base",
     weight: 1.5,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=600&h=750&fit=crop",
-    ],
+    image: "/images/pyramid.png",
+    images: ["/images/pyramid.png"],
     inStock: true,
   },
   {
@@ -173,14 +150,11 @@ export const products: Product[] = [
     description: "The full-size build. A large copper pyramid antenna with genuine quartz crystal, designed for serious growers covering substantial garden areas. The larger surface area collects more atmospheric energy, and the quartz crystal amplifies it into the surrounding soil. This is the centerpiece.",
     features: ["Large-format copper pyramid", "Genuine quartz crystal", "Maximum atmospheric energy collection", "Statement piece for any garden"],
     price: 200,
-    category: "antennas",
-    categoryLabel: "Antennas",
+    category: "pyramids",
+    categoryLabel: "Pyramids",
     weight: 2.0,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=750&fit=crop",
-    ],
+    image: "/images/pyramid.png",
+    images: ["/images/pyramid.png"],
     inStock: true,
   },
   {
@@ -194,11 +168,8 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 1.3,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=600&h=750&fit=crop",
-    ],
+    image: "/images/single-antenna.png",
+    images: ["/images/single-antenna.png"],
     inStock: true,
   },
 
@@ -215,11 +186,8 @@ export const products: Product[] = [
     categoryLabel: "Pyramids",
     dimensions: "12\" x 12\"",
     weight: 1.8,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=600&h=750&fit=crop",
-    ],
+    image: "/images/pyramid.png",
+    images: ["/images/pyramid.png"],
     inStock: true,
   },
   {
@@ -234,11 +202,8 @@ export const products: Product[] = [
     categoryLabel: "Pyramids",
     dimensions: "16\" x 16\"",
     weight: 4.5,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1518882575940-6b5e8a0b6a22?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1518882575940-6b5e8a0b6a22?w=600&h=750&fit=crop",
-    ],
+    image: "/images/pyramid.png",
+    images: ["/images/pyramid.png"],
     inStock: true,
   },
 
@@ -254,11 +219,8 @@ export const products: Product[] = [
     category: "handwear",
     categoryLabel: "Handwear",
     weight: 0.1,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=750&fit=crop",
-    ],
+    image: "/images/palm-ring.png",
+    images: ["/images/palm-ring.png"],
     inStock: true,
   },
   {
@@ -272,11 +234,8 @@ export const products: Product[] = [
     category: "handwear",
     categoryLabel: "Handwear",
     weight: 0.15,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=750&fit=crop",
-    ],
+    image: "/images/palm-ring.png",
+    images: ["/images/palm-ring.png"],
     inStock: true,
   },
   {
@@ -287,14 +246,11 @@ export const products: Product[] = [
     description: "Tensor rings are closed loops of copper wire cut to specific cubit lengths. When the ends are twisted together and the loop is closed, it creates a measurable energy field within the ring. Place one around a water glass, a plant pot, or wear it. Sizes from 2 inches to 12 inches — pick the one that fits your purpose.",
     features: ["Cubit-length copper wire", "Closed-loop tensor technology", "Available in 2\" to 12\" diameter", "For water, plants, or personal use"],
     price: 15,
-    category: "handwear",
-    categoryLabel: "Handwear",
+    category: "tensor-rings",
+    categoryLabel: "Tensor Rings",
     weight: 0.2,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=750&fit=crop",
-    ],
+    image: "/images/tensor-rings.png",
+    images: ["/images/tensor-rings.png"],
     inStock: true,
     variants: [
       { id: "tensor-2", label: "2\" Diameter", price: 15 },
@@ -318,11 +274,8 @@ export const products: Product[] = [
     category: "drinkware",
     categoryLabel: "Drinkware",
     weight: 1.0,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=750&fit=crop",
-    ],
+    image: "/images/copper-bottle.png",
+    images: ["/images/copper-bottle.png"],
     inStock: true,
   },
   {
@@ -336,11 +289,8 @@ export const products: Product[] = [
     category: "drinkware",
     categoryLabel: "Drinkware",
     weight: 0.6,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=750&fit=crop",
-    ],
+    image: "/images/copper-bottle.png",
+    images: ["/images/copper-bottle.png"],
     inStock: true,
   },
 
@@ -353,15 +303,12 @@ export const products: Product[] = [
     description: "A 20x40 inch copper mesh shield designed to block EMF, RF, WiFi, and low-frequency radiation. Hang it behind your router, place it behind your bed, or use it anywhere you want to reduce electromagnetic exposure. Real copper mesh — not a gimmick fabric with a fancy name.",
     features: ["20\" x 40\" coverage", "Blocks EMF, RF, WiFi, LF radiation", "Pure copper mesh construction", "Hang, mount, or lay flat"],
     price: 25,
-    category: "accessories",
-    categoryLabel: "Accessories",
+    category: "emf-shields",
+    categoryLabel: "EMF Shields",
     dimensions: "20\" x 40\"",
     weight: 0.8,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=750&fit=crop",
-    ],
+    image: "/images/emf-shield.png",
+    images: ["/images/emf-shield.png"],
     inStock: true,
   },
   {
@@ -372,15 +319,12 @@ export const products: Product[] = [
     description: "The larger 30x40 inch version of our copper mesh EMF shield. More surface area for bigger spaces — behind a desk setup, across a headboard, or covering a larger section of wall. Same pure copper mesh, same real protection.",
     features: ["30\" x 40\" coverage", "Blocks EMF, RF, WiFi, LF radiation", "Pure copper mesh construction", "Larger format for bigger spaces"],
     price: 35,
-    category: "accessories",
-    categoryLabel: "Accessories",
+    category: "emf-shields",
+    categoryLabel: "EMF Shields",
     dimensions: "30\" x 40\"",
     weight: 1.2,
-    /* REPLACE: Real product photo */
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&h=750&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&h=750&fit=crop",
-    ],
+    image: "/images/emf-shield.png",
+    images: ["/images/emf-shield.png"],
     inStock: true,
   },
 ];

@@ -4,9 +4,12 @@ import Link from "next/link";
 
 const shopLinks = [
   { href: "/shop", label: "All Products" },
-  { href: "/shop?category=antennas", label: "Antennas" },
-  { href: "/shop?category=accessories", label: "Accessories" },
-  { href: "/shop?category=kits", label: "Starter Kits" },
+  { href: "/shop?cat=ant", label: "Antennas" },
+  { href: "/shop?cat=pyr", label: "Pyramids" },
+  { href: "/shop?cat=hand", label: "Handwear" },
+  { href: "/shop?cat=tensor", label: "Tensor Rings" },
+  { href: "/shop?cat=drink", label: "Drinkware" },
+  { href: "/shop?cat=emf", label: "EMF Shields" },
 ];
 
 const companyLinks = [
@@ -37,11 +40,11 @@ export default function Footer() {
               <span className="text-[var(--color-primary)]">ELECTROCULTURE</span>
             </Link>
             <p className="mt-2 text-sm font-medium text-[var(--color-accent)]">
-              Grow with the Earth&apos;s energy.
+              Copper with purpose.
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-text-muted)]">
-              Handcrafted copper antennas and electroculture tools designed to
-              harness atmospheric energy for healthier, more abundant gardens.
+              Handcrafted copper electroculture tools — built by hand, tuned by
+              nature. For those who grow different.
             </p>
 
             {/* Social Links */}

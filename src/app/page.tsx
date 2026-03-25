@@ -11,17 +11,14 @@ const featuredSlugs = [
   "tensor-ring",
 ];
 
+/* REPLACE: Swap these with real product/category photos */
 const categoryImages: Record<string, string> = {
-  antennas:
-    "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop",
-  pyramids:
-    "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=600&h=400&fit=crop",
-  handwear:
-    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop",
-  drinkware:
-    "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=400&fit=crop",
-  accessories:
-    "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop",
+  antennas: "/images/single-antenna.png",
+  pyramids: "/images/pyramid.png",
+  handwear: "/images/palm-ring.png",
+  "tensor-rings": "/images/tensor-rings.png",
+  drinkware: "/images/copper-bottle.png",
+  "emf-shields": "/images/emf-shield.png",
 };
 
 export default function HomePage() {
@@ -32,16 +29,15 @@ export default function HomePage() {
   const categories = getAllCategories();
 
   return (
-    <main>
+    <div>
       {/* ─── Hero ─────────────────────────────────────────── */}
-      <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1920&h=1080&fit=crop"
-          alt="Lush garden with copper tools"
+          src="/images/home-banner.png"
+          alt="Copper spiral electroculture antenna in soil at golden hour"
           fill
           className="object-cover"
           priority
-          unoptimized
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
@@ -113,8 +109,8 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
             <Image
-              src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=600&fit=crop"
-              alt="Hands working with copper"
+              src="/images/about-us-2.png"
+              alt="Go To Electroculture founder at work"
               fill
               className="object-cover"
               unoptimized
@@ -164,14 +160,14 @@ export default function HomePage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5 md:gap-6">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6">
           {categories.map((cat) => {
             const info = CATEGORIES[cat];
             return (
               <Link
                 key={cat}
                 href={`/shop?cat=${info.filterKey}`}
-                className="group relative flex aspect-[3/4] items-end overflow-hidden rounded-lg"
+                className="group relative flex aspect-[4/3] items-end overflow-hidden rounded-lg"
               >
                 <Image
                   src={categoryImages[cat]}
@@ -321,6 +317,6 @@ export default function HomePage() {
           <NewsletterForm />
         </div>
       </section>
-    </main>
+    </div>
   );
 }

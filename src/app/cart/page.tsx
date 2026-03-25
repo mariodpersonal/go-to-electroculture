@@ -10,7 +10,7 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <main className="min-h-screen bg-[var(--color-bg)] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[var(--color-bg)] flex items-center justify-center px-4">
         <div className="text-center py-24">
           <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-surface)] flex items-center justify-center">
             <svg
@@ -40,12 +40,12 @@ export default function CartPage() {
             Start Shopping
           </Link>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[var(--color-bg)]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="flex items-center justify-between mb-10">
           <h1 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
@@ -191,6 +191,6 @@ export default function CartPage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

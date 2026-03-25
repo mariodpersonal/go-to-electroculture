@@ -26,7 +26,7 @@ export default function ProductDetailPage() {
 
   if (!product) {
     return (
-      <main className="mx-auto flex min-h-[60vh] max-w-7xl flex-col items-center justify-center px-6 py-20">
+      <div className="mx-auto flex min-h-[60vh] max-w-7xl flex-col items-center justify-center px-6 py-20">
         <h1 className="text-3xl text-[var(--color-text)]">
           Product Not Found
         </h1>
@@ -39,7 +39,7 @@ export default function ProductDetailPage() {
         >
           Back to Shop
         </Link>
-      </main>
+      </div>
     );
   }
 
@@ -67,7 +67,7 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <main className="mx-auto max-w-7xl px-6 py-8 md:py-12">
+    <div className="mx-auto max-w-7xl px-6 py-8 md:py-12">
       {/* Toast notification */}
       {showToast && (
         <div className="fixed right-6 top-24 z-50 flex items-center gap-3 rounded-lg border border-[var(--color-success)]/30 bg-[var(--color-success-light)] px-5 py-3 shadow-lg animate-in fade-in slide-in-from-top-2">
@@ -99,14 +99,14 @@ export default function ProductDetailPage() {
       >
         <Link
           href="/"
-          className="transition-colors hover:text-[var(--color-primary)]"
+          className="underline decoration-[var(--color-border)] underline-offset-2 transition-colors hover:text-[var(--color-primary)] hover:decoration-[var(--color-primary)]"
         >
           Home
         </Link>
         <span aria-hidden="true">/</span>
         <Link
           href="/shop"
-          className="transition-colors hover:text-[var(--color-primary)]"
+          className="underline decoration-[var(--color-border)] underline-offset-2 transition-colors hover:text-[var(--color-primary)] hover:decoration-[var(--color-primary)]"
         >
           Shop
         </Link>
@@ -374,6 +374,6 @@ export default function ProductDetailPage() {
           </div>
         </section>
       )}
-    </main>
+    </div>
   );
 }

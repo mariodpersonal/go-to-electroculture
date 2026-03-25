@@ -3,15 +3,14 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[var(--color-bg)]">
       {/* Hero Banner */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80"
-          alt="Copper workshop atmosphere"
+          src="/images/about-hero.png"
+          alt="Go To Electroculture workshop"
           fill
           className="object-cover"
-          unoptimized
           priority
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -39,11 +38,10 @@ export default function AboutPage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="relative h-[350px] sm:h-[450px] rounded-2xl overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1400&q=80"
-            alt="Hands shaping copper in a workshop"
+            src="/images/about-us-2.png"
+            alt="Hands shaping copper in the workshop"
             fill
             className="object-cover"
-            unoptimized
           />
         </div>
       </section>
@@ -77,11 +75,10 @@ export default function AboutPage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="relative h-[350px] sm:h-[450px] rounded-2xl overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400&q=80"
-            alt="Lush garden with vibrant plant growth"
+            src="/images/about-us-3.png"
+            alt="Copper electroculture builds and garden results"
             fill
             className="object-cover"
-            unoptimized
           />
         </div>
       </section>
@@ -103,11 +100,10 @@ export default function AboutPage() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="relative h-[350px] sm:h-[450px] rounded-2xl overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1530124566582-a45a7c0be13a?w=1400&q=80"
-            alt="Crystals and copper materials on workbench"
+            src="/images/about-us-4.png"
+            alt="The workshop and community behind Go To Electroculture"
             fill
             className="object-cover"
-            unoptimized
           />
         </div>
       </section>
@@ -166,6 +162,6 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

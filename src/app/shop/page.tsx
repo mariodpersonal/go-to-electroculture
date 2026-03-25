@@ -59,7 +59,7 @@ function ShopContent() {
   }
 
   return (
-    <main className="mx-auto max-w-7xl px-6 py-12 md:py-16">
+    <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
       {/* Header */}
       <div className="mb-10">
         <h1 className="text-4xl text-[var(--color-text)] sm:text-5xl">
@@ -127,6 +127,6 @@ function ShopContent() {
             : ""}
         </p>
       )}
-    </main>
+    </div>
   );
 }
