@@ -13,6 +13,7 @@ export interface Product {
   /* Placeholder image from Unsplash — REPLACE with real product photos */
   image: string;
   images: string[];
+  stock: number;
   inStock: boolean;
   variants?: ProductVariant[];
 }
@@ -28,8 +29,8 @@ export type Category = "antennas" | "pyramids" | "handwear" | "tensor-rings" | "
 export const CATEGORIES: Record<Category, { label: string; filterKey: string; description: string }> = {
   antennas: { label: "Antennas", filterKey: "ant", description: "Copper electroculture antennas for gardens" },
   pyramids: { label: "Pyramids", filterKey: "pyr", description: "Copper pyramid structures" },
-  handwear: { label: "Handwear", filterKey: "hand", description: "Spiraled copper rings and bracelets" },
   "tensor-rings": { label: "Tensor Rings", filterKey: "tensor", description: "Sacred geometry copper tensor rings" },
+  handwear: { label: "Handwear", filterKey: "hand", description: "Spiraled copper rings and bracelets" },
   drinkware: { label: "Drinkware", filterKey: "drink", description: "Copper mugs and water bottles" },
   "emf-shields": { label: "EMF Shields", filterKey: "emf", description: "EMF radiation protection shields" },
 };
@@ -47,8 +48,9 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 0.3,
-    image: "/images/single-antenna.png",
-    images: ["/images/single-antenna.png"],
+    image: "/images/single-multi-crystal-antennas.png",
+    images: ["/images/single-multi-crystal-antennas.png"],
+    stock: 15,
     inStock: true,
   },
   {
@@ -62,8 +64,9 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 0.4,
-    image: "/images/single-antenna.png",
-    images: ["/images/single-antenna.png"],
+    image: "/images/single-multi-crystal-antennas.png",
+    images: ["/images/single-multi-crystal-antennas.png"],
+    stock: 12,
     inStock: true,
   },
   {
@@ -77,8 +80,9 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 1.2,
-    image: "/images/single-antenna.png",
-    images: ["/images/single-antenna.png"],
+    image: "/images/7-chakra-stone-antenna.png",
+    images: ["/images/7-chakra-stone-antenna.png"],
+    stock: 4,
     inStock: true,
   },
   {
@@ -92,8 +96,9 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 0.9,
-    image: "/images/single-antenna.png",
-    images: ["/images/single-antenna.png"],
+    image: "/images/quartz-spiraled-copper-antenna.png",
+    images: ["/images/quartz-spiraled-copper-antenna.png"],
+    stock: 6,
     inStock: true,
   },
   {
@@ -107,8 +112,9 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 1.0,
-    image: "/images/single-antenna.png",
-    images: ["/images/single-antenna.png"],
+    image: "/images/quartz-and-obsidian-copper-antenna.png",
+    images: ["/images/quartz-and-obsidian-copper-antenna.png"],
+    stock: 3,
     inStock: true,
   },
   {
@@ -122,8 +128,9 @@ export const products: Product[] = [
     category: "antennas",
     categoryLabel: "Antennas",
     weight: 0.7,
-    image: "/images/single-antenna.png",
-    images: ["/images/single-antenna.png"],
+    image: "/images/straight-tubed-copper-antenna.png",
+    images: ["/images/straight-tubed-copper-antenna.png"],
+    stock: 10,
     inStock: true,
   },
   {
@@ -138,8 +145,9 @@ export const products: Product[] = [
     categoryLabel: "Pyramids",
     dimensions: "9\" x 9\" base",
     weight: 1.5,
-    image: "/images/pyramid.png",
-    images: ["/images/pyramid.png"],
+    image: "/images/quartz-spiraled-pyramid.png",
+    images: ["/images/quartz-spiraled-pyramid.png"],
+    stock: 5,
     inStock: true,
   },
   {
@@ -153,8 +161,9 @@ export const products: Product[] = [
     category: "pyramids",
     categoryLabel: "Pyramids",
     weight: 2.0,
-    image: "/images/pyramid.png",
-    images: ["/images/pyramid.png"],
+    image: "/images/quartz-spiraled-pyramid.png",
+    images: ["/images/quartz-spiraled-pyramid.png"],
+    stock: 8,
     inStock: true,
   },
   {
@@ -170,6 +179,7 @@ export const products: Product[] = [
     weight: 1.3,
     image: "/images/single-antenna.png",
     images: ["/images/single-antenna.png"],
+    stock: 4,
     inStock: true,
   },
 
@@ -186,8 +196,9 @@ export const products: Product[] = [
     categoryLabel: "Pyramids",
     dimensions: "12\" x 12\"",
     weight: 1.8,
-    image: "/images/pyramid.png",
-    images: ["/images/pyramid.png"],
+    image: "/images/quartz-spiraled-pyramid.png",
+    images: ["/images/quartz-spiraled-pyramid.png"],
+    stock: 7,
     inStock: true,
   },
   {
@@ -202,8 +213,9 @@ export const products: Product[] = [
     categoryLabel: "Pyramids",
     dimensions: "16\" x 16\"",
     weight: 4.5,
-    image: "/images/pyramid.png",
-    images: ["/images/pyramid.png"],
+    image: "/images/quartz-spiraled-pyramid.png",
+    images: ["/images/quartz-spiraled-pyramid.png"],
+    stock: 2,
     inStock: true,
   },
 
@@ -219,8 +231,9 @@ export const products: Product[] = [
     category: "handwear",
     categoryLabel: "Handwear",
     weight: 0.1,
-    image: "/images/palm-ring.png",
-    images: ["/images/palm-ring.png"],
+    image: "/images/palm-rings.png",
+    images: ["/images/palm-rings.png", "/images/palm-rings-open.png"],
+    stock: 20,
     inStock: true,
   },
   {
@@ -236,6 +249,7 @@ export const products: Product[] = [
     weight: 0.15,
     image: "/images/palm-ring.png",
     images: ["/images/palm-ring.png"],
+    stock: 18,
     inStock: true,
   },
   {
@@ -251,6 +265,7 @@ export const products: Product[] = [
     weight: 0.2,
     image: "/images/tensor-rings.png",
     images: ["/images/tensor-rings.png"],
+    stock: 25,
     inStock: true,
     variants: [
       { id: "tensor-2", label: "2\" Diameter", price: 15 },
@@ -276,6 +291,7 @@ export const products: Product[] = [
     weight: 1.0,
     image: "/images/copper-bottle.png",
     images: ["/images/copper-bottle.png"],
+    stock: 9,
     inStock: true,
   },
   {
@@ -291,6 +307,7 @@ export const products: Product[] = [
     weight: 0.6,
     image: "/images/copper-bottle.png",
     images: ["/images/copper-bottle.png"],
+    stock: 14,
     inStock: true,
   },
 
@@ -309,6 +326,7 @@ export const products: Product[] = [
     weight: 0.8,
     image: "/images/emf-shield.png",
     images: ["/images/emf-shield.png"],
+    stock: 11,
     inStock: true,
   },
   {
@@ -325,6 +343,7 @@ export const products: Product[] = [
     weight: 1.2,
     image: "/images/emf-shield.png",
     images: ["/images/emf-shield.png"],
+    stock: 8,
     inStock: true,
   },
 ];

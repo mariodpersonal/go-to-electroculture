@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Our Story | Go To Electroculture",
+  description:
+    "Motorcycle crash survivor turned amputee. Rebuilding through copper, soil, and handcraft. The story behind Go To Electroculture.",
+};
 
 export default function AboutPage() {
   return (

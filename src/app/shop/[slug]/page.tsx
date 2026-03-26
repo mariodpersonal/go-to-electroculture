@@ -1,16 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import {
   getProductBySlug,
   getRelatedProducts,
+  type Product,
   type ProductVariant,
 } from "@/data/products";
 import { useCart } from "@/lib/cart-context";
 import ProductCard from "@/components/ProductCard";
+import CartNotification from "@/components/CartNotification";
 
 export default function ProductDetailPage() {
   const params = useParams<{ slug: string }>();
@@ -22,7 +24,14 @@ export default function ProductDetailPage() {
     null
   );
   const [quantity, setQuantity] = useState(1);
-  const [showToast, setShowToast] = useState(false);
+  const [notification, setNotification] = useState<{
+    product: Product;
+    variantLabel?: string;
+    quantity: number;
+    unitPrice: number;
+  } | null>(null);
+
+  const closeNotification = useCallback(() => setNotification(null), []);
 
   if (!product) {
     return (
@@ -62,34 +71,26 @@ export default function ProductDetailPage() {
         currentPrice
       );
     }
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 3000);
+    setNotification({
+      product: product!,
+      variantLabel: selectedVariant?.label,
+      quantity,
+      unitPrice: currentPrice,
+    });
   }
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-8 md:py-12">
-      {/* Toast notification */}
-      {showToast && (
-        <div className="fixed right-6 top-24 z-50 flex items-center gap-3 rounded-lg border border-[var(--color-success)]/30 bg-[var(--color-success-light)] px-5 py-3 shadow-lg animate-in fade-in slide-in-from-top-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="h-5 w-5 text-[var(--color-success)]"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            />
-          </svg>
-          <span className="text-sm font-medium text-[var(--color-success)]">
-            Added to cart!
-          </span>
-        </div>
+      {/* Cart notification */}
+      {notification && (
+        <CartNotification
+          product={notification.product}
+          variantLabel={notification.variantLabel}
+          quantity={notification.quantity}
+          unitPrice={notification.unitPrice}
+          isVisible={true}
+          onClose={closeNotification}
+        />
       )}
 
       {/* Breadcrumb */}
@@ -352,7 +353,17 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Stock status */}
-          {product.inStock && (
+          {product.stock === 0 || !product.inStock ? (
+            <p className="mt-3 flex items-center gap-2 text-sm text-red-600">
+              <span className="inline-block h-2 w-2 rounded-full bg-red-600" />
+              Out of Stock
+            </p>
+          ) : product.stock <= 5 ? (
+            <p className="mt-3 flex items-center gap-2 text-sm text-[#C4923A]">
+              <span className="inline-block h-2 w-2 rounded-full bg-[#C4923A]" />
+              Only {product.stock} left — order soon
+            </p>
+          ) : (
             <p className="mt-3 flex items-center gap-2 text-sm text-[var(--color-success)]">
               <span className="inline-block h-2 w-2 rounded-full bg-[var(--color-success)]" />
               In stock and ready to ship

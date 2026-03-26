@@ -5,6 +5,8 @@ import Link from "next/link";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,9 +14,30 @@ export default function ContactPage() {
     message: "",
   });
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -164,11 +187,18 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    {error}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-[#B87333] hover:bg-[#9A5E2A] text-white font-semibold py-3.5 rounded-lg text-lg transition-colors cursor-pointer"
+                  disabled={loading}
+                  className="w-full bg-[#B87333] hover:bg-[#9A5E2A] disabled:bg-[#B87333]/60 disabled:cursor-not-allowed text-white font-semibold py-3.5 rounded-lg text-lg transition-colors cursor-pointer"
                 >
-                  Send Message
+                  {loading ? "Sending..." : "Send Message"}
                 </button>
               </form>
             )}

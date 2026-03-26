@@ -4,6 +4,8 @@ import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+import JsonLd from "@/components/JsonLd";
 
 const dmSerifDisplay = DM_Serif_Display({
   weight: "400",
@@ -36,10 +38,24 @@ export default function RootLayout({
       className={`${dmSerifDisplay.variable} ${sourceSans3.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-[var(--color-bg)]">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Go To Electroculture",
+            description:
+              "Handcrafted copper electroculture tools — built by hand, tuned by nature.",
+            url: "https://gotoelectroculture.vercel.app",
+            sameAs: [
+              "https://www.instagram.com/unstoppable_one_leg_wonder",
+            ],
+          }}
+        />
         <CartProvider>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <ScrollToTop />
         </CartProvider>
       </body>
     </html>
