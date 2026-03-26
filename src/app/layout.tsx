@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 import ScrollToTop from "@/components/ScrollToTop";
 import JsonLd from "@/components/JsonLd";
 
@@ -37,6 +38,20 @@ export default function RootLayout({
       lang="en"
       className={`${dmSerifDisplay.variable} ${sourceSans3.variable}`}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-52ZQ30FQW5"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-52ZQ30FQW5');
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen flex flex-col bg-[var(--color-bg)]">
         <JsonLd
           data={{
