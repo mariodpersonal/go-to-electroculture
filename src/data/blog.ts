@@ -79,7 +79,7 @@ const blogPosts: BlogPost[] = [
     author: "Go To Electroculture",
     date: "2026-03-25",
     category: "Electroculture",
-    image: "/images/home-banner.png",
+    image: "/images/electroculture-blog.png",
     readTime: 6,
   },
   {
@@ -133,7 +133,7 @@ const blogPosts: BlogPost[] = [
     author: "Go To Electroculture",
     date: "2026-03-20",
     category: "Copper",
-    image: "/images/about-us-2.png",
+    image: "/images/copper-blog.png",
     readTime: 5,
   },
 ];
