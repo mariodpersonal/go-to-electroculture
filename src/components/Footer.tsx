@@ -17,6 +17,12 @@ const companyLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+const learnLinks = [
+  { href: "/blog", label: "All Articles" },
+  { href: "/blog/benefits-of-electroculture", label: "What Is Electroculture?" },
+  { href: "/blog/benefits-of-copper", label: "Why Copper?" },
+];
+
 const policyLinks = [
   { href: "/policies/shipping", label: "Shipping" },
   { href: "/policies/returns", label: "Returns" },
@@ -29,7 +35,7 @@ export default function Footer() {
     <footer className="bg-[var(--color-iron)] text-[var(--color-bone)]">
       {/* Main Footer Content */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link
@@ -92,6 +98,25 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-3">
               {shopLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-primary)]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Learn Column */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+              Learn
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {learnLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
